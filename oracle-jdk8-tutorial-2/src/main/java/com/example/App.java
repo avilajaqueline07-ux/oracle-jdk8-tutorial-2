@@ -19,7 +19,27 @@ public class App {
     	// Manzana, me daria error porque yo no tengo un constructor que reciba un solo
     	// parametro
     	
-    	Manzana manzana2 = new Manzana("Golden");
+    	/* Utilizando Lombok no necesitamos tener todos los constructores definidos,
+    	 * solamente el constructor sin parametros o por defecto y el constructor
+    	 * que recibe todos los campos de la clase.
+    	 * 
+    	 * UTILIZANDO EL PATRON BUILDER DE LOMBOK, es posible construir cualquier
+    	 * objeto aunque no tengas su constructor explicitamente, y tampoco estariamos
+    	 * obligado a suministrar los campos o propiedades del objeto en un orden
+    	 * determinado */
+    	
+    	// El Patron Builder NO fue inventado por lombok, pero lo ha mejorado 
+    	// bastante.
+    	
+    	// El Patron Builder es patron factoria, es decir, creacional,
+    	// que permite crear o instanciar objetos sin tener explicitamente su
+    	// su constructor
+    	
+    	// Manzana manzana2 = new Manzana("Golden");
+    	
+    	Manzana manzana2 = Manzana.builder()
+    			.variedad("Golden")
+    			.build();
     	
     	System.out.println("------- Imprimiendo manzana2 ------- ");
     	System.out.println(manzana2);
@@ -28,10 +48,19 @@ public class App {
     	 * 
     	 * Vamos a crear dos objetos Manzana que sean de la misma variedad y precio */
     	
-    	Manzana manzana3 = new Manzana("reineta", new BigDecimal(2.0));
+    	// Manzana manzana3 = new Manzana("reineta", new BigDecimal(2.0));
     	
-    	Manzana manzana4 = new Manzana("reineta", new BigDecimal(2.0));
+    	Manzana manzana3 = Manzana.builder()
+    			.variedad("reineta")
+    			.precio(new BigDecimal(2.0))
+    			.build();
     	
+    	// Manzana manzana4 = new Manzana("reineta", new BigDecimal(2.0));
+    
+    	Manzana manzana4 = Manzana.builder()
+    			.variedad("reineta")
+    			.precio(new BigDecimal(2.0))
+    			.build();
     	
     	int x = 5;
     	int y = 5;
@@ -65,6 +94,6 @@ public class App {
     	} else {
     		System.err.println("El contenido de ambos objetos es diferente");
     	}
-      	
+   
     }
 }
