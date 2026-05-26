@@ -138,8 +138,45 @@ public class App {
 		/* Para mostrar en la consola los elementos de un array, por ejemplo
 		 * el array de nombres */
 		
-	
+		/* Si intentaramos mostrar por la consola los elemetos del array nombres */
 		
+		System.out.println("Intentando imprimir los elementos del array nombres");
+		System.out.println(nombres);
 		
+		/* La sentencia anterior solamente mostro por la consola la direccion
+		 * de memoria de la zona donde estan almacenados los elementos del array
+		 * pero los elementos como tal no los ha mostrado.
+		 * 
+		 * Para mostrar los elementos del array se necesita una sentencia de control
+		 * de flujo, que en bucle recorra todos los elementos del array de nombres
+		 * y podria ser la sentencia for clasica, en primer lugar, y en segundo 
+		 * lugar la sentencia for mejorada */
+		
+		// Primero: Sentencia for clasica
+		
+		System.out.println("Recorriendo/Iterando los elementos del array de nombres"
+				+ "con una sentencia for clasica: ");
+		
+		int totalNombres = nombres.length;
+		
+		for (int i = 0; i <= totalNombres - 1; i++ ) {
+			System.out.println(nombres[i]);
+		}
+		
+		System.out.println("La sentencia for ha concluido");
+		
+		/* OPERADOR DE AUTO INCREMENTO (++) Y DE AUTO DECREMENTO (--) */
+		
+		int ii = 0;
+		
+		++ii;
+		
+		ii++;
+		
+		/* Para comprobar la diferencia entre las dos instrucciones anteriores se 
+		 * puede utilizar una herramiento de linea de comandos llamado jshell y 
+		 * comprobaremos que el operador de autoincremento cuando esta solo, es lo 
+		 * mismo que este al principio que al final, que no es igual a cuando esta 
+		 * en una expresion */
 	}
 }
