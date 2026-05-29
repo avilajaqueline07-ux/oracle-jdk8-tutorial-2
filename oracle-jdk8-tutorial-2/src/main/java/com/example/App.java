@@ -78,7 +78,7 @@ public class App {
 					.build(),
 				Manzana.builder()
 					.color("Verde")
-					.sabor("Acida")
+					.sabor("Dulce")
 					.variedad("Granny Smith")
 					.size(6.0)
 					.peso(0.25)
@@ -91,9 +91,40 @@ public class App {
 					.size(8.0)
 					.peso(0.3)
 					.precio(new BigDecimal("0.55"))
-					.build()
-					
-		};	
+					.build(),
+				Manzana.builder()
+					.color("Roja")
+					.sabor("Dulce")
+					.variedad("Red Delicious")
+					.size(7.5)
+					.peso(0.2)
+					.precio(new BigDecimal("0.50"))
+					.build(),
+				Manzana.builder()	
+					.color("Verde")
+					.sabor("Acida")
+					.variedad("Granny Smith")
+					.size(6.0)
+					.peso(0.25)
+					.precio(new BigDecimal("0.60"))	
+					.build(),
+				Manzana.builder()
+					.color("Amarilla")
+					.sabor("Dulce")
+					.variedad("Golden Delicious")
+					.size(8.0)
+					.peso(0.3)
+					.precio(new BigDecimal("0.55"))	
+					.build(),
+				Manzana.builder()
+					.color("Roja")
+					.sabor("Dulce")
+					.variedad("Red Delicious")
+					.size(7.5)
+					.peso(0.2)
+					.precio(new BigDecimal("0.50"))
+					.build()						
+				};	
 		
 		// Hasta el momento los arrays que hemos creado son de tamaño
 		// fijo, es decir, no se pueden modificar una vez que han sido creados	
@@ -279,7 +310,153 @@ public class App {
 		/* Ejercicio # 4.
 		 * 
 		 * Recorrer el array de numerosEnteros y mostrar solamente los que sean de indice impar */
-	}
+		
+		
+		/* -------- SENTENCIAS DE ASIGNACION COMPUESTAS ----------*/
+		
+		/* Primero: En Java existen dos tipos de datos, los tipos de datos primitivos 
+		 * cuyo nombre es todo letras minusculas, como por ejemplo int, long, byte, short,
+		 * boolean, double, float, y  por otra parte NO TIENEN propiedades ni metodos 
+		 * ¿Como lo sabemos? Porque le aplicamos el operador punto (.) a continuacion 
+		 * y no se muestra nada */
+		
+		int e = 20;
+		
+		// e. // No se muestra nada despues del operador punto porque el tipo de dato 
+		
+		 /* Segundo: Existen los tipos de datos no primitivos, que son aquellos cuyo nombre
+		  * comienza con mayuscula, como por ejemplo String, BigDecimal, Manzana, etc. 
+		  * Estos tipos de datos no primitivos SI TIENEN propiedades y metodos */
+		
+		Integer e2 = 200;
+		
+		/* Existe una excepcion y es que el tipo datos String no tiene primitivo */
+		
+		// Tamaño fijo
+		String[] nombres3 = {"Elida", "Jakelin", "Juan Carlos", "Miguel"};
+		
+		// A continuacion array que no es de tamaño fijo
+		String[] nombres4 = new String[100];
+		
+		// Ejemplo: Recorrer el array nombres3 y mostrar solamente los nombres que tengan 
+		// mas de 5 caracteres
+		
+		for ( String nombre : nombres3 ) {
+						
+			if (nombre.length() > 5) 
+				System.out.println(nombre);
+		}
+		
+		
+		 /* Tercero: Existen las sentencias de asignacion compuestas, que son aquellas que
+		  * permiten modificar el valor de una variable utilizando un operador de asignacion
+		  * compuesto, como por ejemplo +=, -=, *=, /=, %=, etc. */
+		
+		/* COMENTARIO MUY IMPORTANTE
+		 * 
+		 * Simpre que sea posible las variables se deben declarar de un tipo de datos primitivo,
+		 * porque de esta manera el lenguaje no tiene que hacer ninguna conversion implicita o explicita.
+		 * 
+		 * El tipo de datos objeto, la contraparte del primitivo, realmente NO existe, el tipo objeto es 
+		 * un envoltorio del tipo primitivo
+		 * */
+		
+		byte v1 = 20;
+		short v2 = 30;
+		
+		// v2 = (short) (v2 + v1);
+		
+		v2 += v1; // v2 = v2 + v1
+		
+		/* Lo anterior es un ejemplo de la potencia de las sentencias de asignacion compuestas 
+		 * 
+		 * De no utilizar una sentencia de asignacion compuesta en el ejemplo anterior, tendriamos que 
+		 * terminar haciendo un type casting (casteo en castelleno) que significa obligar a convertir a 
+		 * un tipo de datos concreto, que debe evitarse en la medida de lo posible.
+		 * 
+		 * Concretamente en la operacion anterior, los operandos v1 y v2 se convierten al tipo int y el
+		 * resultado se obtiene como un int tambien y no se puede almacenar en la variable v2 a no ser
+		 * que se realice un casteo a tipo short
+		 * 
+		 * Todo lo anterior lo realiza la sentencia de asignacion compuesta */
+		
+		/* Conceptos de Contador y Acumulador, implementados a traves del uso 
+		 * de las sentencias de asignacion compuestas 
+		 * 
+		 * A modo de ejemplo # 1: Vamos a recorrer el array de manzanas y calcular el
+		 * peso promedio de todas las manzanas 
+		 * 
+		 * A modo de ejemplo # 2: Recorrer el array de manzanas y mostrar solamente
+		 * las manzanas cuyo peso sea superior al promedio, de color verde, de
+		 * tamaño (size) superior a 5, y de sabor dulce */
+		
+		
+		/* Solucion al ejemplo # 1 */
+		
+		// Contador para llevar la cuenta del total de mazanas a las cuales
+		// le hemos leido el peso, para luego poder calcular el promedio
+		int counter = 0; 	
+		
+		// Acumulador para ir sumando el peso de cada manzana, para luego poder
+		// calcular el promedio
+		double acumuladorPeso = 0.0; // Sumatoria del peso de las manzanas
+		
+		// ¿sentencia for clasica o mejorada? Rta Mejorada, porque no se pide nada
+		// respecto al indice del array de manzanas
+		
+		for (Manzana m : manzanas) {
+			
+			// Incrementamos el contador en uno
+			++counter; // counter = counter + 1
+			
+			// acumuladorPeso = acumuladorPeso + m.getPeso();
+			acumuladorPeso += m.getPeso();
+		}
+		
+		// Fuera del bucle for se calcularia el promedio
+		
+		double pesoPromedio = acumuladorPeso / counter;
+		
+		// Imprimir en la consola el peso promedio
+		System.out.println("El peso promedio es: " + pesoPromedio);
+		
+		/* Solucion al ejemplo # 2. Utilizacion del operador logico relacional &&
+		 * que en otros lenguajes de programacion seria el operador AND y implica
+		 * que tienen que ser verdaderas las condiciones a la izquierda y la derecha
+		 * del operador para que la condicion completa, al evaluar la expresion
+		 * sea verdadera.
+		 * 
+		 * Se le llama tambien al operador && de corto-circuito, porque la primera
+		 * condicion que encuentre que es falsa ya no continua evaluando la restantes */
+		
+		for (Manzana man : manzanas) {
+			
+			if(man.getPeso() > pesoPromedio && 
+					man.getColor().equals("Verde") && 
+					   man.getSize() > 5 &&
+					     man.getSabor().equals("Dulce"))
+				System.out.println(man.toString());
+		}
+		
+		/* Demostracion de que el operador logico && es de corto-circuito */
+		
+		BigDecimal precio = new BigDecimal(0.80);
+		
+		System.out.println("Precio original: " + precio);
+		
+		for (Manzana man : manzanas) {
+			
+			if(man.getPeso() > pesoPromedio && 
+					man.getColor().equals("Verde") && 
+					   man.getSize() > 7 &&
+					     man.getPrecio().equals(precio = new BigDecimal(2.00)) &&
+					        man.getSabor().equals("Dulce"))
+				System.out.println(man.toString());
+		}
+		
+		System.out.println("Precio modificado ???? " + precio);
+		
+		}
 }
 
 
