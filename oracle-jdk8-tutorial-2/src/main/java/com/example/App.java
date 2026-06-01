@@ -456,8 +456,62 @@ public class App {
 		
 		System.out.println("Precio modificado ???? " + precio);
 		
+		/* OPERADOR LOGICO OR (||). Este operador dará como resultado verdadero, si 
+		 * al menos una de las condiciones que se evaluan en la expresion es verdadera.
+		 * 
+		 * A direncia del OPERADOR AND (&&), el operador OR no es de corto-circuito, es
+		 * decir, que si una expresion no se cumple siempre va a evaluar las siguientes */
+		
+		// A continuacion, un ejemplo sencillo
+		
+		boolean t1 = false;
+		boolean t2 = false;
+		boolean t3 = true;
+		
+		if (t1 || t2 || t3 ) {
+			System.out.println("La epresion es verdadera");
+		} else {
+			System.out.println("La exprsion es false");
+		}
+	
+		/* OPERADOR DE NEGACION NOT (!) 
+		 * 
+		 * A modo de ejemplo: ¿Que sucederia si se niega la variable t3, en la condicion
+		 * de la sentencia if anterior? */
+		
+		
+		if (t1 || t2 || !t3 ) {
+			System.out.println("La epresion es verdadera");
+		} else {
+			System.out.println("La expresion es false");
+		}
+		
+		/* En la misma expresion se pueden tener operadores OR (||) y AND (&&) */
+		
+		if (!t1 && t2 && !t3 || !t1) {
+			System.out.println("La epresion es verdadera");
+		} else {
+			System.out.println("La expresion es false");
+		}
+		
+		/* Ejercicio # 1 del Lunes 1 de Junio: 
+		 * 
+		 * Respecto al array de manzanas, recorrerlo con una sentencia for mejorada
+		 * y mostrar por la consola las manzanas que incluyan en el nombre de la 
+		 * variedad la palabra Delicious y, ademas, sean de color Roja, o que tengan 
+		 * un precio inferior o igual al precio promedio */
+		
 		}
 }
+
+
+
+
+
+
+
+
+
 
 
 
