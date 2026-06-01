@@ -501,6 +501,28 @@ public class App {
 		 * variedad la palabra Delicious y, ademas, sean de color Roja, o que tengan 
 		 * un precio inferior o igual al precio promedio */
 		
+		System.out.println("----- Ejercicio 1 del lunes 1 de Junio. "
+				+ "Solucion aportada por Juan Carlos -----");
+
+		int counter2 = 0;
+		double acumuPrecio = 0.0;
+
+		for (Manzana man2 : manzanas) {
+			counter2++;
+			acumuPrecio += man2.getPrecio().doubleValue();
+		}
+		
+		double precioPromedio = acumuPrecio / counter2;
+		System.out.println("El precio promedio de las manzanas es: " + precioPromedio);
+
+		for (Manzana manza : manzanas) {
+			if (manza.getVariedad().contains("Delicious") && manza.getColor().equals("Roja")
+					|| manza.getPrecio().doubleValue() <= precioPromedio) {
+				System.out.println("La manzana que cumple la condicion es: " + manza);
+			}
+		}
+		
+		
 		}
 }
 
