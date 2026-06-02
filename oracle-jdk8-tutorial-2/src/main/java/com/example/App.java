@@ -555,23 +555,38 @@ public class App {
 	// que recibe un tipo enum y devuelve un String
 	// Se necesita una instancia (objeto) de la clase App
 	// para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
+
 	String infoDiaSemana(DiaSemana diaSemana) {
 		
-		if (diaSemana.equals(DiaSemana.LUNES)) 
+		
+		// Utilizando sentencia switch - case 
+		// para evaluar el valor del parametro diaSemana y devolver un mensaje
+		
+		switch (diaSemana) {
+		
+		case LUNES : 
 			return "Primer dia de la semana, a trabajar";
-		else if(diaSemana.equals(DiaSemana.MARTES))
+			
+		case MARTES: 
 			return "Hemos pasado el lunes";
-		else if(diaSemana.equals(DiaSemana.MIERCOLES))
+		
+		case MIERCOLES:
 			return "Nos acercamos al fin de semana";
-		else if(diaSemana.equals(DiaSemana.JUEVES))
+			
+		case JUEVES:
 			return "Es juernes, los nuevos viernes, a disfrutar!!!";
-		else if(diaSemana.equals(DiaSemana.VIERNES))
+			
+		case VIERNES:
 			return "Es viernes y el cuerpo lo sabe";
-		else if(diaSemana.equals(DiaSemana.SABADO) || 
-						diaSemana.equals(DiaSemana.DOMINGO))
+		
+		case SABADO:
+		case DOMINGO:
 			return "Es fin de semana";
-		else 
+			
+			
+		default: 
 			return "El dia recibido no existe";
+		}
 		
 	}
 }
