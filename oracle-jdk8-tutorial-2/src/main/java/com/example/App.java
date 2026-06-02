@@ -547,9 +547,14 @@ public class App {
 		// Invocar el metodo infoDiaSemana, al cual le hemos quitado 
 		// el modificador static
 		
-		System.out.println(infoDiaSemana(DiaSemana.VIERNES));
+		
+		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
 	}
 	
+	// Metodo de instancia, es decir, sin el modificador static,
+	// que recibe un tipo enum y devuelve un String
+	// Se necesita una instancia (objeto) de la clase App
+	// para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
 	String infoDiaSemana(DiaSemana diaSemana) {
 		
 		String resultado = null;
