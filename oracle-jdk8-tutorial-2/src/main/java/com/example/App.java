@@ -544,10 +544,13 @@ public class App {
 		// Invocacion o llamada del metodo infoDiaSemana con parametro correspondiente
 		// al viernes
 		
+		// Invocar el metodo infoDiaSemana, al cual le hemos quitado 
+		// el modificador static
+		
 		System.out.println(infoDiaSemana(DiaSemana.VIERNES));
 	}
 	
-	static String infoDiaSemana(DiaSemana diaSemana) {
+	String infoDiaSemana(DiaSemana diaSemana) {
 		
 		String resultado = null;
 		
