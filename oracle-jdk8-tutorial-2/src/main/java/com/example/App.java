@@ -548,7 +548,7 @@ public class App {
 		// el modificador static
 		
 		
-		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
+		infoDiaSemana(DiaSemana.VIERNES);
 	}
 	
 	// Metodo de instancia, es decir, sin el modificador static,
@@ -556,8 +556,8 @@ public class App {
 	// Se necesita una instancia (objeto) de la clase App
 	// para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
 
-	String infoDiaSemana(DiaSemana diaSemana) {
-		
+	    static void infoDiaSemana(DiaSemana diaSemana) {
+		 
 		
 		// Utilizando sentencia switch - case 
 		// para evaluar el valor del parametro diaSemana y devolver un mensaje
@@ -565,27 +565,32 @@ public class App {
 		switch (diaSemana) {
 		
 		case LUNES : 
-			return "Primer dia de la semana, a trabajar";
+			System.out.println("Primer dia de la semana, a trabajar");
+			break;
 			
 		case MARTES: 
-			return "Hemos pasado el lunes";
-		
+			System.out.println("Hemos pasado el lunes");
+			break;
+			
 		case MIERCOLES:
-			return "Nos acercamos al fin de semana";
+			System.out.println("Nos acercamos al fin de semana");
+			break;
 			
 		case JUEVES:
-			return "Es juernes, los nuevos viernes, a disfrutar!!!";
+			System.out.println("Es juernes, los nuevos viernes, a disfrutar!!!");
+			break;
 			
 		case VIERNES:
-			return "Es viernes y el cuerpo lo sabe";
-		
+			System.out.println("Es viernes y el cuerpo lo sabe");
+			break;
+			
 		case SABADO:
 		case DOMINGO:
-			return "Es fin de semana";
+			System.out.println("Es fin de semana");
 			
 			
 		default: 
-			return "El dia recibido no existe";
+			System.out.println("El dia recibido no existe");
 		}
 		
 	}
