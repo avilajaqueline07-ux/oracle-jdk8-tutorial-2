@@ -589,8 +589,42 @@ public class App {
 		 * agregar a un nuevo array las manzanas cuyo precio ha sido incrementado en un 10%
 		 * */
 		
+		// Nuevo array de manzanas que contendra las manzanas cuyo precio se ha incrementado
+		// en un 10%
+		Manzana[] manzanas10PorCientoPrecioMayor = new Manzana[20];
 		
+		int indice = 0;
 		
+		for (Manzana manzana : manzanas) {
+			// Utilizando un operador ternario
+			double actualSize = manzana.getSize();
+			double precioActual = manzana.getPrecio().doubleValue();
+			
+		    BigDecimal nuevoPrecio = (actualSize >= 5 && actualSize <= 7)   
+										// incrementar el precio en un 10%
+										? new BigDecimal(precioActual * 1.1)	
+											 // Disminuir el precio en un 3%
+											: new BigDecimal(precioActual * 0.97);
+		    
+		    // La manzana tiene que ser agregada el nuevo array, si su precio es
+		    // inferior al nuevoPrecio
+		    
+		    if (precioActual < nuevoPrecio.doubleValue()) {
+		    	
+		    	// Actualizo la manzana con su nuevo precio
+		    	manzana.setPrecio(nuevoPrecio);
+		    	manzanas10PorCientoPrecioMayor[indice++] = manzana;
+		    }
+		    	
+		    
+		}
+		
+		// Imprimir el array de manzanas resultante
+		System.out.println("Array de manzanas resultante: ");
+		
+		for (Manzana m : manzanas10PorCientoPrecioMayor)
+			if (m != null)
+				System.out.println(m);
 		
 	}
 	
