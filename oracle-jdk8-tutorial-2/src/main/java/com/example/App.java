@@ -617,6 +617,8 @@ public class App {
 		    }
 		    	
 		    
+		    
+		    
 		}
 		
 		// Imprimir el array de manzanas resultante
@@ -625,6 +627,8 @@ public class App {
 		for (Manzana m : manzanas10PorCientoPrecioMayor)
 			if (m != null)
 				System.out.println(m);
+		
+		/* Sentencia While */
 		
 	}
 	
