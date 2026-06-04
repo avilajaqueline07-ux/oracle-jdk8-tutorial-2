@@ -643,7 +643,7 @@ public class App {
 		// Ejemplo sencillo para comprender la sintaxis de la 
 		// sentencia while
 		
-		int z = 10;
+		int z = -1;
 		int counterr = 0;
 		
 		while (z >= 0) {
