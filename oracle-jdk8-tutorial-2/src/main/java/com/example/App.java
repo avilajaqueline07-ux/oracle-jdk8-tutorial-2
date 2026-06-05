@@ -32,18 +32,18 @@ public class App {
 		int[][] matrizEnteros = {
 				
 				{1, 2, 3, 10, 100, 200},
-				{4, 5, 6, 20},
+				{4, 5, 6, 5},
 				{7, 8, 9 },
 				{4, 5, 6, 20, 400},
 				{7, 8, 9, 30}
 					
 		};
 		
-		/* Ejemplo: Recorrer la matriz anterior para buscar la ocurrencia
-		 * del numero 5 y mostrar la fila y la columna en las cuales ha
+		/* Ejemplo: Recorrer la matriz anterior para buscar la primera 
+		 * ocurrencia del numero 5 y mostrar la fila y la columna en las cuales ha
 		 * sido encontrado.
 		 * 
-		 * Para recorrer una matriz se utilizan sentecias for anidadas,
+		 * Para recorrer una matriz se utilizan sentencias for anidadas,
 		 * una para las filas y otra para las columnas */
 		
 //		for (int fila = 0; fila <= 3 - 1; fila++ ) 
@@ -62,13 +62,64 @@ public class App {
 		
 		System.out.println("Total de filas: " + totalFilas);
 		
+		// El numero a buscar, su primera ocurrencia en la matriz es el numero 5
+		
+		int numeroABuscar = 5;
+		
+		
 		for (int fila = 0; fila <= totalFilas - 1; fila++) 
 			for (int columna = 0; columna <= 
 			           matrizEnteros[fila].length - 1; columna++) {
-				
+				/* El codigo siguiente ha sido sugerido por GitHub Copilot, un agente
+				 * de IA, pero soluciona el encontrar la primera ocurrencia del numero
+				 * a buscar, porque aunque ya haya encontrado el numero lo continua
+				 * buscando, pero si el numero se encontrase repetido en la misma fila
+				 * tampoco lo encontraria por segunda vez.
+				 * 
+				 * En resumen, es bastante deficiente el codigo sugerido inicialmente
+				 * 
+				 * SOLAMENTE serviria para encontrar la primera ocurrencia en cada fila */
+				if (matrizEnteros[fila][columna] == numeroABuscar) {
+					System.out.println("Numero encontrado en la fila: " + fila);
+					System.out.println("Numero encontrado en la columna: " + columna);
+					break;
+				}
 			}
 		
 		
+		/* A continuacion, el codigo que realmente soluciona el planteamiento 
+		 * original, es decir, de buscar la PRIMERA ocurrencia del valor buscado
+		 * , el numero 5 en este caso: */
+		
+		System.out.println("Codigo que soluciona el problema original: ");
+		
+		bucleExterior: for (int fila = 0; fila <= totalFilas - 1; fila++) 
+			for (int columna = 0; columna <= 
+			           matrizEnteros[fila].length - 1; columna++) {
+	
+				if (matrizEnteros[fila][columna] == numeroABuscar) {
+					System.out.println("Numero encontrado en la fila: " + fila);
+					System.out.println("Numero encontrado en la columna: " + columna);
+					break bucleExterior;
+					
+				}
+			}
+		
+		
+		/* Ejercicio # 1 del Viernes 5 de Junio.
+		 * 
+		 * Recorrer la matriz y encotrar todas las ocurrencias del numero 5, es decir,
+		 * tener en cuenta que pueda estar en la misma fila en mas de una columna */
+		
+		System.out.println("-----Solucion al ejercicio # 1 del viernes 5 de Junio-----");
+		
+		for (int fila = 0; fila <= totalFilas - 1; fila++)
+			for (int columna = 0; columna <= matrizEnteros[fila].length - 1; columna++) {
+		
+				if (matrizEnteros[fila][columna] == numeroABuscar)
+					System.out.println("Numero encontrado en fila: " + fila + " "
+							+ "y columna: " + columna);
+			}
 		
 	}
 }
