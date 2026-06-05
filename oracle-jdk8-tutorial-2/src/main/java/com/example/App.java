@@ -121,6 +121,67 @@ public class App {
 							+ "y columna: " + columna);
 			}
 		
+		/*
+		 * Sentencia continue
+		 * 
+		 * A diferencia del break, no rompe el bucle sino que continua en la siguiente
+		 * iteracion
+		 * 
+		 * Tambien admite etiquetas,
+		 * 
+		 * A modo de ejemplo, recorrer la matriz de numeros enteros, pero utilizando
+		 * sentencias for mejoradas y cada vez que se encuentre un valor par, continuar
+		 * en la siguiente iteracion,
+		 * 
+		 * Si el valor encontrado no es par, elevar al cuadrado el numero y almacenarlo
+		 * en una nueva matriz de numeros enteros, es decir, una matriz de numeros enteros al cuadrado.
+		 * 
+		 * Mostrar el array resultante al final
+		 */
+		// Primero: Recorrer la matriz con dos sentencias for mejoradas
+		
+		System.out.println("-----Ejercicio con sentencia continue-----");
+
+		// Array bidimensional donde se van a almacenar el cuadrado de los numeros
+		// impares
+		int[][] matriz = new int[10][100];
+		
+		int i = -1; // indice para las filas
+		int j = 0;  // indice para las columnas
+		
+		
+		
+		// recorrer matriz con for mejorado la matriz de numeros enteros
+		for (int[] fila : matrizEnteros) {
+			i++;
+			j = 0;
+			// si el valor es par, continuar
+			for (int numero : fila) {
+				if (numero % 2 == 0)
+					continue;
+			// si el valor no es par, elevar al cuadrado
+				else {
+					//int numeroAlCuadrado = numero * numero;
+					numero *= numero;
+					//System.out.println("El numero es: " + numero);
+					System.out.println("El numero al cuadrado es: " + numero);
+					matriz[i][j++] = numero;
+				}
+			}
+		}
+		
+		
+		// Matriz resultante con los cuadrados de los numeros impares
+		
+		System.out.println("La matriz resultante con los cuadrados: ");
+		for (int[] fila : matriz) 
+			for (int valor : fila)
+				if (valor != 0)
+					System.out.println(valor);
+		
+		
+		
+		
 	}
 }
 
